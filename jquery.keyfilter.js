@@ -95,7 +95,7 @@
 		return this.keypress(function(e)
 		{
 			var k = getKey(e);
-			if(!$.browser.msie && (isNavKeyPress(e) || k == Keys.BACKSPACE || (k == Keys.DELETE && e.button == -1)))
+			if(!$.browser.msie && (isNavKeyPress(e) || k == Keys.BACKSPACE || k == Keys.DELETE))
 			{
 				return;
 			}
