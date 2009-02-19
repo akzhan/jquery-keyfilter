@@ -1,7 +1,7 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
  * Version 1.2
- * $Id: $
+ * $Id: jquery.keyfilter.js,v 1.6 2009/02/19 11:54:05 aabdulin Exp $
  *
  * Source code inspired by Ext.JS 2.2.1 (TextField, EventManager)
  *
@@ -70,10 +70,7 @@
 		var k = e.keyCode;
 		return (e.type == 'keypress' && e.ctrlKey) || k == 9 || k == 13 || k == 40 || k == 27 ||
 			(k == 16) || (k == 17) ||
-			(k >= 18 && k <= 20) ||
-			(k >= 33 && k <= 35) ||
-			(k >= 36 && k <= 39) ||
-			(k >= 44 && k <= 45);
+			(k >= 18 && k <= 20);
         };
 
         /**
@@ -88,7 +85,7 @@
 
         var getCharCode = function(e)
 	{
-		return e.charCode || e.keyCode;
+		return e.charCode || e.keyCode || e.which;
 	};
 
 	$.fn.keyfilter = function(re)
@@ -104,12 +101,11 @@
 			{
 				return;
 			}
-			var c = getCharCode(e), cc = String.fromCharCode(c);
+			var c = getCharCode(e), cc = String.fromCharCode(c), ok = true;
 			if(!$.browser.mozilla && (isSpecialKey(e) || !cc))
 			{
 				return;
 			}
-			var ok = true;
 			if ($.isFunction(re))
 			{
 				ok = re.call(this, cc);
