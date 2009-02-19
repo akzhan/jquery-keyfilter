@@ -1,7 +1,9 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
+ * Version 1.2
+ * $Id: $
  *
- * Source code inspired by Ext.JS 2.2 (TextField, EventManager)
+ * Source code inspired by Ext.JS 2.2.1 (TextField, EventManager)
  *
  * Procedural style:
  * $('#ggg').keyfilter(/[\dA-F]/);
@@ -74,7 +76,6 @@
 			(k >= 44 && k <= 45);
         };
 
-
         /**
          * Returns a normalized keyCode for the event.
          * @return {Number} The key code
@@ -94,13 +95,17 @@
 	{
 		return this.keypress(function(e)
 		{
+			if (e.ctrlKey || e.altKey)
+			{
+				return;
+			}
 			var k = getKey(e);
-			if(!$.browser.msie && (isNavKeyPress(e) || k == Keys.BACKSPACE || k == Keys.DELETE))
+			if($.browser.mozilla && (isNavKeyPress(e) || k == Keys.BACKSPACE || k == Keys.DELETE))
 			{
 				return;
 			}
 			var c = getCharCode(e), cc = String.fromCharCode(c);
-			if($.browser.msie && (isSpecialKey(e) || !cc))
+			if(!$.browser.mozilla && (isSpecialKey(e) || !cc))
 			{
 				return;
 			}
