@@ -1,9 +1,9 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
- * Version 1.3
+ * Version 1.4
  * $Id$
  *
- * Source code inspired by Ext.JS 2.2.1 (TextField, EventManager)
+ * Source code inspired by Ext.JS (Ext.form.TextField, Ext.EventManager)
  *
  * Procedural style:
  * $('#ggg').keyfilter(/[\dA-F]/);
@@ -121,9 +121,12 @@
 		});
 	};
 
-	$.fn.keyfilter.defaults = {
-		masks: defaultMasks
-	};
+	$.extend($.fn.keyfilter, {
+		defaults: {
+			masks: defaultMasks
+		},
+		version: 1.4
+	});
 
 	$(document).ready(function()
 	{
