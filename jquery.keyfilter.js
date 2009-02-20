@@ -29,7 +29,8 @@
 {
 	var defaultMasks = {
 		pint:     /[\d]/,
-		int:      /[\d\-]/,
+		'int':      /[\d\-]/,
+		pnum:     /[\d\.]/,
 		num:      /[\d\-\.]/,
 		hex:      /[0-9a-f]/i,
 		email:    /[a-z0-9_\.\-@]/i,
