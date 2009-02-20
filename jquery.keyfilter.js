@@ -1,7 +1,7 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
  * Version 1.3
- * $Id: jquery.keyfilter.js,v 1.6 2009/02/19 11:54:05 aabdulin Exp $
+ * $Id$
  *
  * Source code inspired by Ext.JS 2.2.1 (TextField, EventManager)
  *
