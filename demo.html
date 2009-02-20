@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>jquery.keyfilter</h1>
+			<h1>jQuery Keyfilter</h1>
 			<h2>Demo page</h2>
 			<noscript>
 				<div class="error">Warning! This demo page correctly works with enabled JavaScript only.</div>
@@ -34,7 +34,7 @@
 				<label><input type="text" id="by-f" /> - By function</label>
 			</fieldset>
 			<p>
-				This demo uses <a href="code.google.com/p/jquery-keyfilter/">jquery.keyfilter</a>, <a href="http://jquery.com/">jQuery</a> and <a href="http://www.blueprintcss.org/">Blueprint</a>.
+				This demo uses <a href="http://code.google.com/p/jquery-keyfilter/">jquery.keyfilter</a>, <a href="http://jquery.com/">jQuery</a> and <a href="http://www.blueprintcss.org/">Blueprint</a>.
 			</p>
 			<p>
 				<a href="http://validator.w3.org/check?uri=referer">
@@ -49,7 +49,7 @@
 			</p>
 		</div>
 		<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.1.min.js"></script>
-		<script type="text/javascript" src="http://jquery-keyfilter.googlecode.com/files/jquery.keyfilter-1.3.js"></script>
+		<script type="text/javascript" src="jquery.keyfilter.js"></script>
 		<script type="text/javascript">
 (function($)
 {
@@ -57,5 +57,16 @@
 	$('#by-f').keyfilter(function(c) { return c != 'A'; });
 })(jQuery);
 		</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7566425-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 	</body>
 </html>
