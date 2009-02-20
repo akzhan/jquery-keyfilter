@@ -16,12 +16,13 @@
  * <input type="text" class="mask-num" />
  *
  * Available classes:
-   * mask-pint: /[\d]/
-   * mask-int: /[\d\-]/
-   * mask-num: /[\d\-\.]/
-   * mask-hex: /[0-9a-f]/i
-   * mask-email: /[a-z0-9_\.\-@]/i
-   * mask-alpha: /[a-z_]/i
+   * mask-pint:     /[\d]/
+   * mask-int:      /[\d\-]/
+   * mask-pnum:     /[\d\.]/
+   * mask-num:      /[\d\-\.]/
+   * mask-hex:      /[0-9a-f]/i
+   * mask-email:    /[a-z0-9_\.\-@]/i
+   * mask-alpha:    /[a-z_]/i
    * mask-alphanum: /[a-z0-9_]/i
  */
 
@@ -29,7 +30,7 @@
 {
 	var defaultMasks = {
 		pint:     /[\d]/,
-		'int':      /[\d\-]/,
+		'int':    /[\d\-]/,
 		pnum:     /[\d\.]/,
 		num:      /[\d\-\.]/,
 		hex:      /[0-9a-f]/i,
