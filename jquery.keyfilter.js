@@ -1,6 +1,6 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
- * Version 1.4
+ * Version 1.5
  * $Id$
  *
  * Source code inspired by Ext.JS (Ext.form.TextField, Ext.EventManager)
@@ -70,9 +70,12 @@
         var isSpecialKey = function(e)
 	{
 		var k = e.keyCode;
-		return (e.type == 'keypress' && e.ctrlKey) || k == 9 || k == 13 || k == 40 || k == 27 ||
-			(k == 16) || (k == 17) ||
-			(k >= 18 && k <= 20);
+		return k == 9 || k == 13 || k == 40 || k == 27 ||
+			k == 16 || k == 17 ||
+			(k >= 18 && k <= 20) ||
+			($.browser.opera && (k == 8 || (k >= 33 && k <= 35) || (k >= 36 && k <= 39) || (k >= 44 && k <= 45)))
+			;
+
         };
 
         /**
