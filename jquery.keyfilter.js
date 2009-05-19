@@ -1,6 +1,6 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
- * Version 1.5
+ * Version 1.6
  * $Id$
  *
  * Source code inspired by Ext.JS (Ext.form.TextField, Ext.EventManager)
@@ -19,6 +19,7 @@
    * mask-pint:     /[\d]/
    * mask-int:      /[\d\-]/
    * mask-pnum:     /[\d\.]/
+   * mask-money     /[\d\.\s,]/
    * mask-num:      /[\d\-\.]/
    * mask-hex:      /[0-9a-f]/i
    * mask-email:    /[a-z0-9_\.\-@]/i
@@ -32,6 +33,7 @@
 		pint:     /[\d]/,
 		'int':    /[\d\-]/,
 		pnum:     /[\d\.]/,
+		money:    /[\d\.\s,]/,
 		num:      /[\d\-\.]/,
 		hex:      /[0-9a-f]/i,
 		email:    /[a-z0-9_\.\-@]/i,
@@ -62,18 +64,19 @@
 
 	var isNavKeyPress = function(e)
 	{
-            var k = e.keyCode;
-            k = $.browser.safari ? (SafariKeys[k] || k) : k;
-            return (k >= 33 && k <= 40) || k == Keys.RETURN || k == Keys.TAB || k == Keys.ESC;
+		var k = e.keyCode;
+		k = $.browser.safari ? (SafariKeys[k] || k) : k;
+		return (k >= 33 && k <= 40) || k == Keys.RETURN || k == Keys.TAB || k == Keys.ESC;
 	};
 
         var isSpecialKey = function(e)
 	{
 		var k = e.keyCode;
+		var c = e.charCode;
 		return k == 9 || k == 13 || k == 40 || k == 27 ||
 			k == 16 || k == 17 ||
 			(k >= 18 && k <= 20) ||
-			($.browser.opera && (k == 8 || (k >= 33 && k <= 35) || (k >= 36 && k <= 39) || (k >= 44 && k <= 45)))
+			($.browser.opera && (k == 8 || (k >= 33 && k <= 35 && c == k) || (k >= 36 && k <= 39 && c != k) || (k >= 44 && k <= 45)))
 			;
 
         };
@@ -85,7 +88,8 @@
         var getKey = function(e)
 	{
 		var k = e.keyCode || e.charCode;
-		return $.browser.safari ? (SafariKeys[k] || k) : k;
+		k = $.browser.safari ? (SafariKeys[k] || k) : k;
+		return k;
         };
 
         var getCharCode = function(e)
@@ -102,7 +106,7 @@
 				return;
 			}
 			var k = getKey(e);
-			if($.browser.mozilla && (isNavKeyPress(e) || k == Keys.BACKSPACE || k == Keys.DELETE))
+			if($.browser.mozilla && (isNavKeyPress(e) || k == Keys.BACKSPACE || (k == Keys.DELETE && e.charCode == 0)))
 			{
 				return;
 			}
@@ -130,7 +134,7 @@
 		defaults: {
 			masks: defaultMasks
 		},
-		version: 1.5
+		version: 1.6
 	});
 
 	$(document).ready(function()
