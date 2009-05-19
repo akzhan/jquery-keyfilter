@@ -1,6 +1,6 @@
 /*
  * This plugin filters keyboard input by specified regular expression.
- * Version 1.6
+ * Version 1.7
  * $Id$
  *
  * Source code inspired by Ext.JS (Ext.form.TextField, Ext.EventManager)
@@ -73,10 +73,10 @@
 	{
 		var k = e.keyCode;
 		var c = e.charCode;
-		return k == 9 || k == 13 || k == 40 || k == 27 ||
+		return k == 9 || k == 13 || (k == 40 && (!$.browser.opera || !e.shiftKey)) || k == 27 ||
 			k == 16 || k == 17 ||
 			(k >= 18 && k <= 20) ||
-			($.browser.opera && (k == 8 || (k >= 33 && k <= 35 && c == k) || (k >= 36 && k <= 39 && c != k) || (k >= 44 && k <= 45)))
+			($.browser.opera && !e.shiftKey && (k == 8 || (k >= 33 && k <= 35) || (k >= 36 && k <= 39) || (k >= 44 && k <= 45)))
 			;
 
         };
@@ -88,8 +88,7 @@
         var getKey = function(e)
 	{
 		var k = e.keyCode || e.charCode;
-		k = $.browser.safari ? (SafariKeys[k] || k) : k;
-		return k;
+		return $.browser.safari ? (SafariKeys[k] || k) : k;
         };
 
         var getCharCode = function(e)
@@ -134,7 +133,7 @@
 		defaults: {
 			masks: defaultMasks
 		},
-		version: 1.6
+		version: 1.7
 	});
 
 	$(document).ready(function()
