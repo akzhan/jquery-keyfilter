@@ -9,8 +9,10 @@ Source code inspired by [Ext.JS](http://www.sencha.com/products/extjs/) (*Ext.fo
 `$('#ggg').keyfilter(/[\dA-F]/);`
 
 Also you can pass test function instead of regexp. Its arguments:
+
 * this - HTML DOM Element (event target).
 * c - String that contains incoming character.
+
 `$('#ggg').keyfilter(function(c) { return c != 'a'; });`
 
 ## CSS class attribute style
