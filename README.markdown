@@ -36,33 +36,32 @@ Keyfilter supports extending and changing of list of provided masks.
 
 ### Example of extending
 
-`/*
- * Key filter masks for hosting.
- */
+    /*
+     * Key filter masks for hosting.
+     */
 
-(function($)
-{
-var hostingMasks = {
-         dir: /[a-z0-9_\/\-\.]/i,
-         ftpuser: /[a-z0-9_]/
-};
+    (function($)
+    {
+      var hostingMasks = {
+        dir: /[a-z0-9_\/\-\.]/i,
+        ftpuser: /[a-z0-9_]/
+      };
 
-$.extend($.fn.keyfilter.defaults.masks, hostingMasks);
+      $.extend($.fn.keyfilter.defaults.masks, hostingMasks);
 
-})(jQuery);`
+    })(jQuery);
 
 ### Override built-in masks to allow french accents
 
-`/*
- * Key filter masks supporting french accents.
- */
+    /*
+     * Key filter masks supporting french accents.
+     */
 
-(function($)
-{
-$.extend($.fn.keyfilter.defaults.masks, {
+    (function($)
+    {
+      $.extend($.fn.keyfilter.defaults.masks, {
         alpha:    /[a-zéèçàêoe_]/i,
         alphanum: /[a-zéèçàêoe0-9_]/i
-});
-
-})(jQuery);`
+      });
+    })(jQuery);
 
