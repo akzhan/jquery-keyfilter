@@ -19,6 +19,8 @@ Also you can pass test function instead of regexp. Its arguments:
 
 `<input type="text" class="mask-num" />`
 
+Inputs with CSS classes like this will automatically have the corresponding regexp below applied.
+
 ### Predefined classes with its regexps
 
 * mask-pint: `/[\d]/`
@@ -29,6 +31,12 @@ Also you can pass test function instead of regexp. Its arguments:
 * mask-email: `/[a-z0-9_\.\-@]/i`
 * mask-alpha: `/[a-z_]/i`
 * mask-alphanum: `/[a-z0-9_]/i`
+
+### Using different classes
+
+You can apply these standard regexps to different classes if you wish.
+
+    $('input.integer').keyfilter($.fn.keyfilter.defaults.masks.int)
 
 ## Extensibility
 
@@ -65,3 +73,8 @@ Keyfilter supports extending and changing of list of provided masks.
       });
     })(jQuery);
 
+## Overriding
+ 
+You can fully override masks by simple assignment after the plugin loads but before the `document.ready` event fires.
+
+    $.fn.keyfilter.defaults.masks = { ... };
