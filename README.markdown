@@ -75,6 +75,6 @@ Keyfilter supports extending and changing of list of provided masks.
 
 ## Overriding
  
-You can fully override masks by simple assignment after the plugin loads but the `document.ready` event fires.
+You can fully override masks by simple assignment after the plugin loads but before the `document.ready` event fires.
 
     $.fn.keyfilter.defaults.masks = { ... };
