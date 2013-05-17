@@ -122,6 +122,10 @@
 			{
 				ok = re.test(cc);
 			}
+			if (ok)
+		      	{
+		        	ok = re.test($(this).val()+String(cc));
+		      	}
 			if(!ok)
 			{
 				e.preventDefault();
