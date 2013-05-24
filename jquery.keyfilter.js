@@ -57,7 +57,7 @@
 				browser.safari = true;
 			}
 			return browser;
-		}
+		};
 	}
 
 	var defaultMasks = {
