@@ -129,7 +129,7 @@
 
 	$.fn.keyfilter = function(re)
 	{
-		return this.live('keypress',function(e) {
+		return this.live('keypress',function(e)
 		{
 			if (e.ctrlKey || e.altKey)
 			{
