@@ -1,0 +1,24 @@
+{
+  "name": "jquery.keyfilter",
+  "version": "1.7.0",
+  "description": "This plugin filters keyboard input by specified regular expression.",
+  "homepage": "http://akzhan.github.io/jquery-keyfilter/",
+  "bugs": {
+    "url": "https://github.com/akzhan/jquery-keyfilter/issues",
+    "email" : "akzhan.abdulin@gmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name" : "Akzhan Abdulin",
+    "email" : "akzhan.abdulin@gmail.com",
+    "url" : "http://akzhan.github.io/"
+  },
+  "main": "./jquery.keyfilter.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/akzhan/jquery-keyfilter.git"
+  },
+  "dependencies": {
+    "jquery": ">=1.3"
+  }
+}
